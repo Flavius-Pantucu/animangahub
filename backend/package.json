@@ -24,6 +24,7 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "prod": "nodemon app.js PROD",
+    "dev": "nodemon app.js DEV"
   }
 }

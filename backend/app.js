@@ -2,17 +2,24 @@ const { MongoClient } = require("mongodb");
 
 require("dotenv").config();
 
+const NODE_ENV = process.argv[2];
+if (NODE_ENV === undefined)
+  return console.log("Expected node environment argument to be specified");
+else if (NODE_ENV !== "PROD" && NODE_ENV !== "DEV")
+  return console.log("Unexpected value for node environment argument");
+
 // JWT Configuration
 const jwt = require("jsonwebtoken");
 
 // Express Server
 const express = require("express");
 const app = express();
-const port = process.env.PORT;
+const port = NODE_ENV == "PROD" ? process.env.PROD_PORT : process.env.DEV_PORT;
 app.listen(port, () => console.log(`Listening on port ${port}!`));
 
 //MongoBD Configuration
-const uri = process.env.MONGO_URI;
+const uri =
+  NODE_ENV == "PROD" ? process.env.PROD_MONGO_URI : process.env.DEV_MONGO_URI;
 const client = new MongoClient(uri, { useUnifiedTopology: true });
 
 // Routes

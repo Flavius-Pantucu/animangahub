@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "backend": "cd ./backend && node app.js",
+    "backend": "cd ./backend && npm run dev",
     "frontend": "cd ./frontend && npm run dev",
     "start": "run-p backend frontend"
   },
