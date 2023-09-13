@@ -30,22 +30,22 @@ app.get("/", function (req, res) {
 
 app.get("/test", function (req, res, next) {
   console.log("GET request called");
-  res.end();
+  res.send("GET request called");
 });
 
 app.post("/test", function (req, res, next) {
   console.log("POST request called");
-  res.end();
+  res.send("POST request called");
 });
 
 app.delete("/test", function (req, res, next) {
   console.log("DELETE request called");
-  res.end();
+  res.send("DELETE request called");
 });
 
 app.put("/test", function (req, res, next) {
   console.log("PUT request called");
-  res.end();
+  res.send("PUT request called");
 });
 
 // mongodb examples

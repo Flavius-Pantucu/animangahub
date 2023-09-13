@@ -6,7 +6,7 @@
   "scripts": {
     "backend": "cd ./backend && npm run dev",
     "frontend": "cd ./frontend && npm run dev",
-    "start": "run-p backend frontend"
+    "dev": "run-p backend frontend"
   },
   "keywords": [],
   "author": "",
