@@ -37,8 +37,16 @@ export default function MyCarousel() {
       type: "series",
       duration: "23m",
     },
+    {
+      name: "Your Name",
+      genre: "Drama, Fantasy",
+      rating: 5,
+      release: 2016,
+      type: "movie",
+      duration: "1h 46m",
+    },
   ];
-  const itemsNo = 4;
+  const itemsNo = 5;
   const [currentItem, setCurrentItem] = useState(1);
   const semaphoreRef = useRef(false);
 
@@ -70,17 +78,17 @@ export default function MyCarousel() {
     else return;
   };
 
-  // useEffect(() => {
-  //   intervalID = setInterval(() => {
-  //     currentItem == itemsNo
-  //       ? setCurrentItem(1)
-  //       : setCurrentItem(currentItem + 1);
-  //   }, 8000);
+  useEffect(() => {
+    intervalID = setInterval(() => {
+      currentItem == itemsNo
+        ? setCurrentItem(1)
+        : setCurrentItem(currentItem + 1);
+    }, 8000);
 
-  //   return () => {
-  //     clearTimeout(intervalID);
-  //   };
-  // }, [currentItem]);
+    return () => {
+      clearTimeout(intervalID);
+    };
+  }, [currentItem]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -143,7 +151,9 @@ export default function MyCarousel() {
             <div className='bg-cyan-400 text-black text-xs h-full rounded-r-md pl-1 pr-2 font-medium'>
               TV
             </div>
-            <div className=''>{animeDescription[currentItem - 1].duration}</div>
+            <div className='transition-all duration-1000'>
+              {animeDescription[currentItem - 1].duration}
+            </div>
           </div>
         </div>
         <div className='absolute top-[85%] left-[80%] z-30'>
@@ -168,79 +178,30 @@ export default function MyCarousel() {
           </button>
         </div>
         <div>
-          <Image
-            fill
-            id='item-1'
-            className={` ${
-              currentItem == 1 ? "opacity-50" : "opacity-0"
-            } transition-all duration-1000 ease-in-out`}
-            src='/images/wallpaper1.jpg'
-            alt='...'
-          />
-        </div>
-        <div>
-          <Image
-            fill
-            id='item-2'
-            className={` ${
-              currentItem == 2 ? "opacity-50" : "opacity-0"
-            } transition-all duration-1000 ease-in-out`}
-            src='/images/wallpaper2.jpg'
-            alt='...'
-          />
-        </div>
-        <div>
-          <Image
-            fill
-            id='item-3'
-            className={` ${
-              currentItem == 3 ? "opacity-50" : "opacity-0"
-            } transition-all duration-1000 ease-in-out`}
-            src='/images/wallpaper3.png'
-            alt='...'
-          />
-        </div>
-        <div>
-          <Image
-            fill
-            id='item-4'
-            className={` ${
-              currentItem == 4 ? "opacity-50" : "opacity-0"
-            } transition-all duration-1000 ease-in-out`}
-            src='/images/wallpaper4.png'
-            alt='...'
-          />
+          {[...Array(itemsNo)].map((e, i) => (
+            <Image
+              key={i}
+              fill
+              id={"item-" + i}
+              className={` ${
+                currentItem == i + 1 ? "opacity-50" : "opacity-0"
+              } transition-all duration-1000 ease-in-out`}
+              src={"/images/wallpaper" + (i + 1) + ".jpg"}
+              alt='...'
+            />
+          ))}
         </div>
       </div>
       <div className='absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2'>
-        <button
-          type='button'
-          onClick={() => setCurrentItem(1)}
-          className={`transition-all duration-1000 ease-in-out w-3 h-3 rounded-full ${
-            currentItem == 1 ? "bg-gray-100" : "bg-gray-400"
-          } `}
-        ></button>
-        <button
-          type='button'
-          onClick={() => setCurrentItem(2)}
-          className={`transition-all duration-1000 ease-in-out w-3 h-3 rounded-full ${
-            currentItem == 2 ? "bg-gray-100" : "bg-gray-400"
-          } `}
-        ></button>
-        <button
-          type='button'
-          onClick={() => setCurrentItem(3)}
-          className={`transition-all duration-1000 ease-in-out w-3 h-3 rounded-full ${
-            currentItem == 3 ? "bg-gray-100" : "bg-gray-400"
-          } `}
-        ></button>
-        <button
-          type='button'
-          onClick={() => setCurrentItem(4)}
-          className={`transition-all duration-1000 ease-in-out w-3 h-3 rounded-full ${
-            currentItem == 4 ? "bg-gray-100" : "bg-gray-400"
-          } `}
-        ></button>
+        {[...Array(itemsNo)].map((e, i) => (
+          <button
+            type='button'
+            onClick={() => setCurrentItem(i + 1)}
+            className={`transition-all duration-1000 ease-in-out w-3 h-3 rounded-full ${
+              currentItem == i + 1 ? "bg-gray-100" : "bg-gray-400"
+            } `}
+          ></button>
+        ))}
       </div>
       <button
         type='button'
