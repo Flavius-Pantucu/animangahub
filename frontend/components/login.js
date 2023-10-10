@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export default function Login() {
   return (
-    <div className='absolute w-full h-full top-0 left-0 bg-gray-950/60 z-40'>
+    <div className='absolute w-full h-full top-0 left-0 bg-gray-950/80 z-40'>
       <div className='flex flex-col items-center justify-center h-screen'>
         <a
           href='#'
           className='flex items-center mb-6 text-2xl font-semibold text-white'
         >
           <Image
-            className='w-28 h-28 mr-2'
+            className='w-28 h-28 mr-2 rounded-full'
             width={200}
             height={200}
             src='/images/icon.png'
