@@ -1,4 +1,3 @@
-import { Kings } from "next/font/google";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
@@ -113,9 +112,8 @@ export default function MyCarousel() {
             <div className='hidden md:flex flex-row space-x-1'>
               {[...Array(animeDescription[currentItem - 1].rating)].map(
                 (e, i) => (
-                  <span>
+                  <span key={i}>
                     <svg
-                      key={i}
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 24 24'
                       fill='currentColor'
@@ -208,6 +206,7 @@ export default function MyCarousel() {
       <div className='absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2'>
         {[...Array(itemsNo)].map((e, i) => (
           <button
+            key={i}
             type='button'
             onClick={() => setCurrentItem(i + 1)}
             className={`transition-all duration-1000 ease-in-out lg:w-3 lg:h-3 w-2 h-2 rounded-full ${
