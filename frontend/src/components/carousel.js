@@ -102,23 +102,24 @@ export default function MyCarousel() {
     <div className='flex w-full flex-1 mt-4'>
       <div className='absolute top-0 right-0 w-full h-full blur-[0px]'>
         <div className='absolute flex flex-col font-sans top-[85%] left-[10%] z-30'>
-          <span className='text-6xl font-extrabold pb-4'>
+          <span className='2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-xl font-extrabold 2xl:pb-4 pb-2 transition-all ease-in-out duration-500'>
             {animeDescription[currentItem - 1].name}
           </span>
           <div className='flex flex-row space-x-3 h-8 items-center'>
-            <div className='text-sm'>
+            <div className='lg:text-sm text-xs transition-all ease-in-out duration-500'>
               {animeDescription[currentItem - 1].genre}
             </div>
-            <div className='self-center opacity-40 w-2 h-2 rounded-full bg-white'></div>
+            <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500'></div>
             <div className='flex flex-row space-x-1'>
               {[...Array(animeDescription[currentItem - 1].rating)].map(
                 (e, i) => (
                   <span>
                     <svg
+                      key={i}
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 24 24'
                       fill='currentColor'
-                      className='w-5 h-5 text-yellow-300'
+                      className='w-4 h-4 lg:w-5 lg:h-5 text-yellow-300 transition-all ease-in-out duration-500'
                     >
                       <path
                         fillRule='evenodd'
@@ -130,34 +131,32 @@ export default function MyCarousel() {
                 )
               )}
             </div>
-            <div className='self-center opacity-40 w-2 h-2 rounded-full bg-white'></div>
-            <div className='text-sm'>
-              {" "}
-              {animeDescription[currentItem - 1].release}{" "}
+            <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500'></div>
+            <div className='lg:text-sm text-xs transition-all ease-in-out duration-500'>
+              {animeDescription[currentItem - 1].release}
             </div>
-            <div className='self-center opacity-40 w-2 h-2 rounded-full bg-white'></div>
-            <div className='border rounded-sm text-sm px-2 py-1 uppercase'>
-              {" "}
+            <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500'></div>
+            <div className='border rounded-sm lg:text-sm text-xs px-2 py-1 uppercase transition-all ease-in-out duration-500'>
               {animeDescription[currentItem - 1].type}
             </div>
           </div>
-          <div className='flex flex-row space-x-2 h-4 items-center'>
-            <div className='bg-white text-black text-xs h-full rounded-l-md pl-2 pr-1 font-medium'>
+          <div className='flex flex-row space-x-1 lg:space-x-2 h-4 items-center transition-all ease-in-out duration-500'>
+            <div className='bg-white text-black lg:scale-100 scale-90 text-xs h-full rounded-l-md px-2 font-medium'>
               PG-13
             </div>
-            <div className='bg-yellow-400 text-black text-xs h-full px-1 font-medium'>
+            <div className='bg-yellow-400 text-black lg:scale-100 scale-90 text-xs h-full px-2 font-medium'>
               HD
             </div>
-            <div className='bg-cyan-400 text-black text-xs h-full rounded-r-md pl-1 pr-2 font-medium'>
+            <div className='bg-cyan-400 text-black lg:scale-100 scale-90 text-xs h-full rounded-r-md px-2 font-medium'>
               TV
             </div>
-            <div className='transition-all duration-1000'>
+            <div className='text-xs lg:text-sm lg:scale-100 scale-90'>
               {animeDescription[currentItem - 1].duration}
             </div>
           </div>
         </div>
-        <div className='absolute top-[85%] left-[80%] z-30'>
-          <button className='relative h-[50px] w-52 rounded-3xl overflow-hidden border-2 border-gray-200 bg-transparent text-gray-200 shadow-2xl transition-all duration-700 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-700 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-700 hover:text-white hover:border-rose-800 hover:shadow-rose-800/40 hover:before:w-2/4 hover:before:bg-rose-800 hover:after:w-2/4 hover:after:bg-rose-800'>
+        <div className='absolute top-[85%] left-[70%] lg:left-[75%] 2xl:left-[80%] z-30'>
+          <button className='relative h-[50px] w-36 lg:w-44 2xl:w-52 rounded-3xl overflow-hidden border-2 border-gray-200 bg-transparent text-gray-200 shadow-2xl transition-all duration-700 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-700 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-700 hover:text-white hover:border-rose-800 hover:shadow-rose-800/40 hover:before:w-2/4 hover:before:bg-rose-800 hover:after:w-2/4 hover:after:bg-rose-800'>
             <span className='flex flex-row justify-center items-center relative z-10'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -165,7 +164,7 @@ export default function MyCarousel() {
                 viewBox='0 0 24 24'
                 strokeWidth={1.5}
                 stroke='currentColor'
-                className='w-5 h-5'
+                className='lg:w-5 lg:h-5 w-4 h-4'
               >
                 <path
                   strokeLinecap='round'
@@ -173,7 +172,9 @@ export default function MyCarousel() {
                   d='M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z'
                 />
               </svg>
-              <p className='font-sans pl-2 text-lg'>Watch Now</p>
+              <p className='font-sans pl-2 2xl:text-lg lg:text-sm text-xs'>
+                Watch Now
+              </p>
             </span>
           </button>
         </div>
@@ -197,7 +198,7 @@ export default function MyCarousel() {
           <button
             type='button'
             onClick={() => setCurrentItem(i + 1)}
-            className={`transition-all duration-1000 ease-in-out w-3 h-3 rounded-full ${
+            className={`transition-all duration-1000 ease-in-out lg:w-3 lg:h-3 w-2 h-2 rounded-full ${
               currentItem == i + 1 ? "bg-gray-100" : "bg-gray-400"
             } `}
           ></button>
@@ -208,9 +209,9 @@ export default function MyCarousel() {
         className='absolute top-[50%] left-0 z-30 flex pl-4 cursor-pointer group focus:outline-none'
         onClick={prevItem}
       >
-        <span className='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 group-hover:bg-white/30 transition-all duration-500 ease-in-out'>
+        <span className='inline-flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8 rounded-full bg-white/20 group-hover:bg-white/30 transition-all duration-500 ease-in-out'>
           <svg
-            className='w-4 h-4 text-white'
+            className='lg:w-4 lg:h-4 w-3 h-3 text-white'
             aria-hidden='true'
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -231,9 +232,9 @@ export default function MyCarousel() {
         className='absolute top-[50%] right-0 z-30 flex pr-4 cursor-pointer group focus:outline-none'
         onClick={nextItem}
       >
-        <span className='inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/20 group-hover:bg-white/30 transition-all duration-500 ease-in-out'>
+        <span className='inline-flex items-center justify-center lg:w-10 lg:h-10 w-8 h-8 rounded-full bg-white/20 group-hover:bg-white/30 transition-all duration-500 ease-in-out'>
           <svg
-            className='w-4 h-4 text-white'
+            className='lg:w-4 lg:h-4 w-3 h-3'
             aria-hidden='true'
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
