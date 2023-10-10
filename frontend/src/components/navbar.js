@@ -13,14 +13,14 @@ const goodTimesRg = localFont({
 export default function NavBar() {
   return (
     <div className='flex flex-row justify-evenly pt-2'>
-      <div className='cursor-pointer hover:scale-110 transition-all ease-in-out duration-700 h-10 aspect-square items-end justify-center flex ml-10 z-20'>
+      <div className='cursor-pointer hover:scale-110 transition-all ease-in-out duration-700 h-10 aspect-square items-end justify-center flex ml-5 lg:ml-10 z-20'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
           viewBox='0 0 24 24'
           strokeWidth={1.5}
           stroke='currentColor'
-          className='w-6 h-6'
+          className='md:w-6 md:h-6 w-5 h-5'
         >
           <path
             strokeLinecap='round'
@@ -29,9 +29,9 @@ export default function NavBar() {
           />
         </svg>
       </div>
-      <div className='flex flex-auto justify-end mr-28 items-end h-10'>
+      <div className='flex flex-auto justify-end mr-6 sm:mr-8 md:mr-10 lg:mr-14 xl:mr-20 2xl:mr-28 items-end h-10'>
         <p
-          className={`${goodTimesRg.variable} font-sans cursor-pointer hover:scale-125 hover:text-red-500 transition-all duration-500 z-20`}
+          className={`${goodTimesRg.variable} font-sans text-xs md:text-md xl:text-lg cursor-pointer hover:scale-125 hover:text-red-500 transition-all duration-500 z-20`}
         >
           Anime
         </p>
@@ -46,11 +46,15 @@ export default function NavBar() {
         <div
           className={`${goodTimesRg.variable} font-sans flex h-10 items-end cursor-pointer hover:scale-110 hover:text-transparent bg-white hover:bg-gradient-to-r bg-clip-text hover:from-red-500 hover:to-blue-500 transition-all ease-in-out duration-700 z-20`}
         >
-          <p className='text-3xl'>A</p>
-          <p className='text-xl'>ni</p>
-          <p className='text-3xl'>M</p>
-          <p className='text-xl'>anga</p>
-          <p className='text-[10px]'>Hub</p>
+          <span className='h-full flex items-end leading-3 text-lg lg:text-3xl'>
+            A
+          </span>
+          <span className='h-full flex items-end leading-3 text-sm lg:text-xl'>
+            ni
+          </span>
+          <span className='text-lg lg:text-3xl'>M</span>
+          <span className='text-sm lg:text-xl'>anga</span>
+          <span className='text-[6px] lg:text-[10px]'>Hub</span>
         </div>
         <div
           className={`flex place-items-center h-0 w-0 pt-4 z-10
@@ -59,21 +63,21 @@ export default function NavBar() {
            `}
         ></div>
       </div>
-      <div className='flex flex-auto justify-start ml-28 items-end h-10'>
+      <div className='flex flex-auto justify-start ml-6 sm:ml-8 md:ml-10 lg:ml-14 xl:ml-20 2xl:ml-28 items-end h-10'>
         <p
-          className={`${goodTimesRg.variable} font-sans cursor-pointer hover:scale-125 hover:text-blue-500 transition-all duration-500 z-10`}
+          className={`${goodTimesRg.variable} font-sans text-xs md:text-md xl:text-lg cursor-pointer hover:scale-125 hover:text-blue-500 transition-all duration-500 z-10`}
         >
           Manga
         </p>
       </div>
-      <div className='cursor-pointer hover:scale-110 transition-all ease-in-out duration-700 h-10 aspect-square items-end justify-center flex mr-10 z-10'>
+      <div className='cursor-pointer hover:scale-110 transition-all ease-in-out duration-700 h-10 aspect-square items-end justify-center flex mr-5 lg:mr-10 z-10'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
           viewBox='0 0 24 24'
           strokeWidth='1.5'
           stroke='currentColor'
-          className='w-6 h-6'
+          className='md:w-6 md:h-6 w-5 h-5'
         >
           <path
             strokeLinecap='round'

@@ -101,8 +101,8 @@ export default function MyCarousel() {
   return (
     <div className='flex w-full flex-1 mt-4'>
       <div className='absolute top-0 right-0 w-full h-full blur-[0px]'>
-        <div className='absolute flex flex-col font-sans top-[85%] left-[10%] z-30'>
-          <span className='2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-xl font-extrabold 2xl:pb-4 pb-2 transition-all ease-in-out duration-500'>
+        <div className='absolute flex flex-col font-sans bottom-[15%] left-[5%] lg:left-[10%] z-30'>
+          <span className='2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-xl font-extrabold 2xl:pb-4 md:pb-2 pb-0 transition-all ease-in-out duration-500'>
             {animeDescription[currentItem - 1].name}
           </span>
           <div className='flex flex-row space-x-3 h-8 items-center'>
@@ -110,7 +110,7 @@ export default function MyCarousel() {
               {animeDescription[currentItem - 1].genre}
             </div>
             <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500'></div>
-            <div className='flex flex-row space-x-1'>
+            <div className='hidden md:flex flex-row space-x-1'>
               {[...Array(animeDescription[currentItem - 1].rating)].map(
                 (e, i) => (
                   <span>
@@ -131,16 +131,16 @@ export default function MyCarousel() {
                 )
               )}
             </div>
-            <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500'></div>
-            <div className='lg:text-sm text-xs transition-all ease-in-out duration-500'>
+            <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500 hidden md:block'></div>
+            <div className='lg:text-sm text-xs transition-all ease-in-out duration-500 hidden md:block'>
               {animeDescription[currentItem - 1].release}
             </div>
-            <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500'></div>
+            <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500 hidden md:block'></div>
             <div className='border rounded-sm lg:text-sm text-xs px-2 py-1 uppercase transition-all ease-in-out duration-500'>
               {animeDescription[currentItem - 1].type}
             </div>
           </div>
-          <div className='flex flex-row space-x-1 lg:space-x-2 h-4 items-center transition-all ease-in-out duration-500'>
+          <div className='flex-row space-x-1 lg:space-x-2 h-4 items-center transition-all ease-in-out duration-500 hidden md:flex'>
             <div className='bg-white text-black lg:scale-100 scale-90 text-xs h-full rounded-l-md px-2 font-medium'>
               PG-13
             </div>
@@ -155,8 +155,8 @@ export default function MyCarousel() {
             </div>
           </div>
         </div>
-        <div className='absolute top-[85%] left-[70%] lg:left-[75%] 2xl:left-[80%] z-30'>
-          <button className='relative h-[50px] w-36 lg:w-44 2xl:w-52 rounded-3xl overflow-hidden border-2 border-gray-200 bg-transparent text-gray-200 shadow-2xl transition-all duration-700 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-700 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-700 hover:text-white hover:border-rose-800 hover:shadow-rose-800/40 hover:before:w-2/4 hover:before:bg-rose-800 hover:after:w-2/4 hover:after:bg-rose-800'>
+        <div className='absolute bottom-[15%] right-[5%] lg:right-[10%] z-30'>
+          <button className='relative h-[40px] md:h-[50px] w-36 lg:w-44 2xl:w-52 rounded-3xl overflow-hidden border-2 border-gray-200 bg-transparent text-gray-200 shadow-2xl transition-all duration-700 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-700 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-700 hover:text-white hover:border-rose-800 hover:shadow-rose-800/40 hover:before:w-2/4 hover:before:bg-rose-800 hover:after:w-2/4 hover:after:bg-rose-800'>
             <span className='flex flex-row justify-center items-center relative z-10'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -186,8 +186,20 @@ export default function MyCarousel() {
               id={"item-" + i}
               className={` ${
                 currentItem == i + 1 ? "opacity-50" : "opacity-0"
-              } transition-all duration-1000 ease-in-out`}
+              } transition-all duration-1000 ease-in-out md:block hidden`}
               src={"/images/wallpaper" + (i + 1) + ".jpg"}
+              alt='...'
+            />
+          ))}
+          {[...Array(itemsNo)].map((e, i) => (
+            <Image
+              key={i}
+              fill
+              id={"item-" + i}
+              className={` ${
+                currentItem == i + 1 ? "opacity-50" : "opacity-0"
+              } transition-all duration-1000 ease-in-out md:hidden`}
+              src={"/images/wp" + (i + 1) + ".jpg"}
               alt='...'
             />
           ))}
