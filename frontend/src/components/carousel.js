@@ -101,7 +101,7 @@ export default function MyCarousel() {
   return (
     <div className='flex w-full flex-1 mt-4'>
       <div className='absolute top-0 right-0 w-full h-full blur-[0px]'>
-        <div className='absolute flex flex-col font-sans bottom-[15%] left-[5%] lg:left-[10%] z-30'>
+        <div className='absolute flex flex-col font-sans bottom-[10%] left-[5%] lg:left-[10%] z-30'>
           <span className='2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-xl font-extrabold 2xl:pb-4 md:pb-2 pb-0 transition-all ease-in-out duration-500'>
             {animeDescription[currentItem - 1].name}
           </span>
@@ -155,7 +155,7 @@ export default function MyCarousel() {
             </div>
           </div>
         </div>
-        <div className='absolute bottom-[15%] right-[5%] lg:right-[10%] z-30'>
+        <div className='absolute bottom-[10%] right-[5%] lg:right-[10%] z-30'>
           <button className='relative h-[40px] md:h-[50px] w-36 lg:w-44 2xl:w-52 rounded-3xl overflow-hidden border-2 border-gray-200 bg-transparent text-gray-200 shadow-2xl transition-all duration-700 before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:duration-700 after:absolute after:right-0 after:top-0 after:h-full after:w-0 after:duration-700 hover:text-white hover:border-rose-800 hover:shadow-rose-800/40 hover:before:w-2/4 hover:before:bg-rose-800 hover:after:w-2/4 hover:after:bg-rose-800'>
             <span className='flex flex-row justify-center items-center relative z-10'>
               <svg

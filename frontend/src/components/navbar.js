@@ -46,15 +46,11 @@ export default function NavBar() {
         <div
           className={`${goodTimesRg.variable} font-sans flex h-10 items-end cursor-pointer hover:scale-110 hover:text-transparent bg-white hover:bg-gradient-to-r bg-clip-text hover:from-red-500 hover:to-blue-500 transition-all ease-in-out duration-700 z-20`}
         >
-          <span className='h-full flex items-end leading-3 text-lg lg:text-3xl'>
-            A
-          </span>
-          <span className='h-full flex items-end leading-3 text-sm lg:text-xl'>
-            ni
-          </span>
-          <span className='text-lg lg:text-3xl'>M</span>
-          <span className='text-sm lg:text-xl'>anga</span>
-          <span className='text-[6px] lg:text-[10px]'>Hub</span>
+          <span className='text-lg/4 lg:text-3xl/8'>A</span>
+          <span className='text-sm/4 lg:text-xl/8'>ni</span>
+          <span className='text-lg/4 lg:text-3xl/8'>M</span>
+          <span className='text-sm/4 lg:text-xl/8'>anga</span>
+          <span className='text-[6px]/4 lg:text-[10px]/8'>Hub</span>
         </div>
         <div
           className={`flex place-items-center h-0 w-0 pt-4 z-10
