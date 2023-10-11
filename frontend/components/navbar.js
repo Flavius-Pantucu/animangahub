@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import Login from "./login";
+import { useState } from "react";
 
 const goodTimesRg = localFont({
   src: [
@@ -12,15 +13,24 @@ const goodTimesRg = localFont({
 });
 
 export default function NavBar() {
+  const toggleLogin = () => {
+    setLoginToggle(!loginToggle);
+  };
+
+  const [loginToggle, setLoginToggle] = useState(false);
+
   return (
     <>
       <div className='flex flex-row justify-evenly pt-2'>
-        <div className='cursor-pointer hover:scale-110 transition-all ease-in-out duration-700 h-10 aspect-square items-end justify-center flex ml-5 lg:ml-10 z-20'>
+        <div
+          onClick={toggleLogin}
+          className='cursor-pointer hover:scale-110 transition-all ease-in-out duration-700 h-10 aspect-square items-end justify-center flex ml-5 lg:ml-10 z-20'
+        >
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
             viewBox='0 0 24 24'
-            strokeWidth={1.5}
+            strokeWidth={2.5}
             stroke='currentColor'
             className='md:w-6 md:h-6 w-5 h-5'
           >
@@ -85,7 +95,7 @@ export default function NavBar() {
           </svg>
         </div>
       </div>
-      <Login />
+      {loginToggle && <Login toggleLogin={toggleLogin} />}
     </>
   );
 }

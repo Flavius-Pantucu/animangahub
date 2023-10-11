@@ -1,9 +1,33 @@
 import Image from "next/image";
+import { useEffect } from "react";
 
-export default function Login() {
+export default function Login(props) {
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") props.toggleLogin();
+    return;
+  };
+
+  const closeModal = (event) => {
+    if (event.target.id === "loginModal") props.toggleLogin();
+    return;
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
   return (
-    <div className='absolute w-full h-full top-0 left-0 bg-gray-950/80 z-40'>
-      <div className='flex flex-col items-center justify-center h-screen'>
+    <div
+      onClick={closeModal}
+      className='absolute w-full h-full top-0 left-0 bg-gray-950/80 z-40'
+    >
+      <div
+        className='flex flex-col items-center justify-center h-screen'
+        id='loginModal'
+      >
         <a
           href='#'
           className='flex items-center mb-6 text-2xl font-semibold text-white'
@@ -21,10 +45,7 @@ export default function Login() {
             <h1 className='text-xl font-bold leading-tight tracking-tight md:text-2xl text-white'>
               Sign in to your account
             </h1>
-            <form
-              className='space-y-4 md:space-y-6'
-              action='#'
-            >
+            <div className='space-y-4 md:space-y-6'>
               <div>
                 <label
                   for='email'
@@ -99,7 +120,7 @@ export default function Login() {
                   Sign up
                 </a>
               </p>
-            </form>
+            </div>
           </div>
         </div>
       </div>
