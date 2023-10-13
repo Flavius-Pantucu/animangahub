@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import Login from "./login";
 import { useState } from "react";
 import Link from "next/link";
+import Register from "./register";
 
 const goodTimesRg = localFont({
   src: [
@@ -14,17 +15,22 @@ const goodTimesRg = localFont({
 });
 
 export default function NavBar() {
-  const toggleLogin = () => {
-    setLoginToggle(!loginToggle);
+  const setLogin = (state) => {
+    setLoginToggle(state);
+  };
+
+  const setRegister = (state) => {
+    setRegisterToggle(state);
   };
 
   const [loginToggle, setLoginToggle] = useState(false);
+  const [registerToggle, setRegisterToggle] = useState(false);
 
   return (
     <>
       <div className='flex flex-row justify-evenly pt-2'>
         <div
-          onClick={toggleLogin}
+          onClick={() => setLogin(true)}
           className='cursor-pointer hover:scale-110 transition-all ease-in-out duration-700 h-10 aspect-square items-end justify-center flex ml-5 lg:ml-10 z-20'
         >
           <svg
@@ -98,7 +104,18 @@ export default function NavBar() {
           </svg>
         </div>
       </div>
-      {loginToggle && <Login toggleLogin={toggleLogin} />}
+      {loginToggle && (
+        <Login
+          setLogin={setLogin}
+          setRegister={setRegister}
+        />
+      )}
+      {registerToggle && (
+        <Register
+          setLogin={setLogin}
+          setRegister={setRegister}
+        />
+      )}
     </>
   );
 }
