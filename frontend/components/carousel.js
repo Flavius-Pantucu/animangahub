@@ -98,8 +98,8 @@ export default function MyCarousel() {
   }, [currentItem]);
 
   return (
-    <div className='flex w-full flex-1 mt-4'>
-      <div className='absolute top-0 right-0 w-full h-full blur-[0px]'>
+    <div className='flex w-full h-screen'>
+      <div className='w-full h-full'>
         <div className='absolute flex flex-col font-sans bottom-[10%] left-[5%] lg:left-[10%] z-30'>
           <span className='2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-xl font-extrabold 2xl:pb-4 md:pb-2 pb-0 transition-all ease-in-out duration-500'>
             {animeDescription[currentItem - 1].name}
@@ -183,7 +183,7 @@ export default function MyCarousel() {
               fill
               id={"item-" + i}
               className={` ${
-                currentItem == i + 1 ? "opacity-50" : "opacity-0"
+                currentItem == i + 1 ? "opacity-60" : "opacity-0"
               } transition-all duration-1000 ease-in-out md:block hidden`}
               src={"/images/wallpaper" + (i + 1) + ".jpg"}
               alt='...'
