@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
-export default function MyCarousel() {
+export default function Carousel() {
   var intervalID = null;
   const animeDescription = [
     {

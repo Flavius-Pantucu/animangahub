@@ -1,13 +1,15 @@
 "use client";
 
 import NavBar from "../components/navbar";
-import MyCarousel from "../components/carousel";
+import Carousel from "../components/carousel";
+import Slider from "../components/slider";
 
 export default function Home() {
   return (
-    <div className='flex flex-col min-h-screen bg-[#0A0D12]'>
+    <div className='min-h-screen bg-[#0A0D12]'>
       <NavBar />
-      <MyCarousel />
+      <Carousel />
+      <Slider />
     </div>
   );
 }
