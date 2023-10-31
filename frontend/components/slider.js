@@ -2,114 +2,144 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 export default function Slider() {
-  const [sliderIndex, setSliderIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [slideItems, setSlideItems] = useState(5);
+  const sliderCount = useRef(11);
+
+  useEffect(() => {
+    const updateSlider = () => {
+      const width = window.innerWidth;
+      if (width < 768) setSlideItems(2);
+      else if (width > 768 && width < 1280) setSlideItems(3);
+      else if (width > 1280 && width < 1536) setSlideItems(4);
+      else setSlideItems(5);
+    };
+    window.addEventListener("resize", updateSlider);
+    updateSlider();
+  }, []);
 
   return (
     <>
-      <div className='group flex w-full justify-center overflow-hidden'>
+      <div className='group flex w-full justify-center overflow-hidden pt-2'>
         <div
-          className='w-[4rem] z-10 my-2 bg-black/30 group-hover:bg-black/50 transition-all duration-500 ease-in-out cursor-pointer rounded-r-2xl pr-4'
-          onClick={() => setSliderIndex(sliderIndex - 1)}
+          className='w-[3rem] z-10 my-3 mr-2 bg-white/30 group-hover:bg-white/50 transition-all duration-500 ease-in-out cursor-pointer rounded-r-2xl'
+          onClick={() =>
+            slideIndex == 0
+              ? setSlideIndex(Math.floor(sliderCount.current / slideItems))
+              : setSlideIndex(slideIndex - 1)
+          }
         >
           <div className='h-full w-full flex justify-center items-center leading-none text-7xl group-hover:scale-125 transition-all duration-500 ease-in-out'>
             &#8249;
           </div>
         </div>
         <div
-          className={`flex flex-grow transition-transform ease-in-out duration-1000 -translate-x-[calc(100%*${sliderIndex})]`}
+          className={`flex flex-grow transition-transform ease-in-out duration-1000 -translate-x-[calc(100%*${slideIndex})]`}
         >
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=1'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide1.jpg'
               fill
-              alt='1'
+              alt='Demon Slayer'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=2'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide2.jpg'
               fill
-              alt='2'
+              alt='Jujutsu Kaisen'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=3'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide3.jpg'
               fill
-              alt='3'
+              alt='Attack on Titan'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=4'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide4.jpg'
               fill
-              alt='4'
+              alt='Naruto Shippuden'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=5'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide5.jpg'
               fill
-              alt='5'
+              alt='My Hero Academia'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=6'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide6.jpg'
               fill
-              alt='6'
+              alt='Black Clover'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=7'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide7.jpg'
               fill
-              alt='7'
+              alt='Monster'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=8'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide8.jpg'
               fill
-              alt='8'
+              alt='Death Note'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=9'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide9.jpg'
               fill
-              alt='9'
+              alt='Spy x Family'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=10'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide10.jpg'
               fill
-              alt='10'
+              alt='Hunter x Hunter'
             ></Image>
           </div>
-          <div className='w-1/5 shrink-0 relative aspect-video'>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover p-3 rounded-2xl'
-              src='https://placehold.co/200?text=11'
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide11.jpg'
               fill
-              alt='11'
+              alt='My Dress-Up Darling'
+            ></Image>
+          </div>
+          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
+            <Image
+              className='object-cover px-2 py-3 rounded-2xl'
+              src='/images/slider-anime/slide12.jpg'
+              fill
+              alt='Tokyo Ghoul'
             ></Image>
           </div>
         </div>
         <div
-          className='w-[4rem] z-10 my-2 bg-black/30 group-hover:bg-black/50 transition-all duration-500 ease-in-out cursor-pointer rounded-l-2xl pl-4'
-          onClick={() => setSliderIndex(sliderIndex + 1)}
+          className='w-[3rem] z-10 my-3 ml-2 bg-white/30 group-hover:bg-white/50 transition-all duration-500 ease-in-out cursor-pointer rounded-l-2xl'
+          onClick={() =>
+            slideIndex == Math.floor(sliderCount.current / slideItems)
+              ? setSlideIndex(0)
+              : setSlideIndex(slideIndex + 1)
+          }
         >
           <div className='h-full w-full flex justify-center items-center leading-none text-7xl group-hover:scale-125 transition-all duration-500 ease-in-out'>
             &#8250;

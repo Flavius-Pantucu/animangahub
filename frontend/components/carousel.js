@@ -185,7 +185,7 @@ export default function Carousel() {
               className={` ${
                 currentItem == i + 1 ? "opacity-60" : "opacity-0"
               } transition-all duration-1000 ease-in-out md:block hidden`}
-              src={"/images/wallpaper" + (i + 1) + ".jpg"}
+              src={"/images/carousel-desktop/wallpaper" + (i + 1) + ".jpg"}
               alt='...'
             />
           ))}
@@ -197,7 +197,7 @@ export default function Carousel() {
               className={` ${
                 currentItem == i + 1 ? "opacity-50" : "opacity-0"
               } transition-all duration-1000 ease-in-out md:hidden`}
-              src={"/images/wp" + (i + 1) + ".jpg"}
+              src={"/images/carousel-mobile/wallpaper" + (i + 1) + ".jpg"}
               alt='...'
             />
           ))}
