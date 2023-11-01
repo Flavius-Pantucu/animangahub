@@ -2,160 +2,197 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 export default function Slider() {
-  const [slideIndex, setSlideIndex] = useState(0);
-  const [slideItems, setSlideItems] = useState(5);
-  const sliderCount = useRef(11);
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const [sliderItems, setSliderItems] = useState(0);
+  const sliderCount = 12;
+
+  const nextSliderPage = () => {
+    sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
+      ? setSliderIndex(0)
+      : setSliderIndex(sliderIndex + 1);
+  };
+
+  const prevSliderPage = () => {
+    sliderIndex == 0
+      ? setSliderIndex(Math.ceil(sliderCount / sliderItems) - 1)
+      : setSliderIndex(sliderIndex - 1);
+  };
 
   useEffect(() => {
     const updateSlider = () => {
       const width = window.innerWidth;
-      if (width < 768) setSlideItems(2);
-      else if (width > 768 && width < 1280) setSlideItems(3);
-      else if (width > 1280 && width < 1536) setSlideItems(4);
-      else setSlideItems(5);
+      if (width < 768 && sliderItems != 2) {
+        setSliderIndex(0);
+        setSliderItems(2);
+      } else if (width > 768 && width < 1280 && sliderItems != 3) {
+        setSliderIndex(0);
+        setSliderItems(3);
+      } else if (width > 1280 && width < 1536 && sliderItems != 4) {
+        setSliderIndex(0);
+        setSliderItems(4);
+      } else if (width > 1536 && sliderItems != 5) {
+        setSliderIndex(0);
+        setSliderItems(5);
+      }
     };
-    window.addEventListener("resize", updateSlider);
     updateSlider();
+    window.addEventListener("resize", updateSlider);
   }, []);
 
   return (
-    <>
-      <div className='group flex w-full justify-center overflow-hidden pt-2'>
+    <div className="bg-[url('/images/background.png')]">
+      <div className='pl-[1.75rem] md:pl-[2.25rem] xl:pl-[2.75rem] 2xl:pl-[3.25rem] text-sm md:text-lg xl:text-xl pb-2 pt-4 font-sans'>
+        Popular Anime
+      </div>
+      <div className='group flex w-full justify-center'>
         <div
-          className='w-[1.5rem] md:w-[2rem] xl:w-[2.5rem] 2xl:w-[3rem] z-10 my-3 mr-1 bg-white/30 group-hover:bg-white/50 transition-all duration-500 ease-in-out cursor-pointer rounded-r-2xl'
-          onTouchEnd={() =>
-            slideIndex == 0
-              ? setSlideIndex(Math.floor(sliderCount.current / slideItems))
-              : setSlideIndex(slideIndex - 1)
-          }
-          onClick={() =>
-            slideIndex == 0
-              ? setSlideIndex(Math.floor(sliderCount.current / slideItems))
-              : setSlideIndex(slideIndex - 1)
-          }
+          className='w-[1.5rem] md:w-[2rem] xl:w-[2.5rem] 2xl:w-[3rem] z-10 mr-1 bg-transparent group-hover:bg-white/40 transition-all duration-500 ease-in-out cursor-pointer rounded-r-2xl'
+          onClick={prevSliderPage}
         >
-          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
             &#8249;
           </div>
         </div>
-        <div
-          className={`flex flex-grow transition-transform ease-in-out duration-1000 -translate-x-[calc(100%*${slideIndex})]`}
-        >
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide1.jpg'
-              fill
-              alt='Demon Slayer'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide2.jpg'
-              fill
-              alt='Jujutsu Kaisen'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide3.jpg'
-              fill
-              alt='Attack on Titan'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide4.jpg'
-              fill
-              alt='Naruto Shippuden'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide5.jpg'
-              fill
-              alt='My Hero Academia'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide6.jpg'
-              fill
-              alt='Black Clover'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide7.jpg'
-              fill
-              alt='Monster'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide8.jpg'
-              fill
-              alt='Death Note'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide9.jpg'
-              fill
-              alt='Spy x Family'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide10.jpg'
-              fill
-              alt='Hunter x Hunter'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide11.jpg'
-              fill
-              alt='My Dress-Up Darling'
-            ></Image>
-          </div>
-          <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
-            <Image
-              className='object-cover px-1 py-3 rounded-2xl'
-              src='/images/slider-anime/slide12.jpg'
-              fill
-              alt='Tokyo Ghoul'
-            ></Image>
+        <div className='w-full overflow-hidden'>
+          <div
+            className={
+              `flex flex-grow transition-transform ease-in-out duration-1000 -translate-x-[` +
+              100 * sliderIndex +
+              `%]`
+            }
+          >
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide1.jpg'
+                fill
+                alt='Demon Slayer'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide2.jpg'
+                fill
+                alt='Jujutsu Kaisen'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide3.jpg'
+                fill
+                alt='Attack on Titan'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide4.jpg'
+                fill
+                alt='Naruto Shippuden'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide5.jpg'
+                fill
+                alt='My Hero Academia'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide6.jpg'
+                fill
+                alt='Black Clover'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide7.jpg'
+                fill
+                alt='Monster'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide8.jpg'
+                fill
+                alt='Death Note'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide9.jpg'
+                fill
+                alt='Spy x Family'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide10.jpg'
+                fill
+                alt='Hunter x Hunter'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide11.jpg'
+                fill
+                alt='My Dress-Up Darling'
+              ></Image>
+            </div>
+            <div
+              className={`w-1/${sliderItems} shrink-0 relative aspect-video`}
+            >
+              <Image
+                className='object-cover px-1 rounded-2xl'
+                src='/images/slider-anime/slide12.jpg'
+                fill
+                alt='Tokyo Ghoul'
+              ></Image>
+            </div>
           </div>
         </div>
         <div
-          className='w-[1.5rem] md:w-[2rem] xl:w-[2.5rem] 2xl:w-[3rem] z-10 my-3 ml-1 bg-white/30 group-hover:bg-white/50 transition-all duration-500 ease-in-out cursor-pointer rounded-l-2xl'
-          onTouchEnd={() =>
-            slideIndex == Math.floor(sliderCount.current / slideItems)
-              ? setSlideIndex(0)
-              : setSlideIndex(slideIndex + 1)
-          }
-          onClick={() =>
-            slideIndex == Math.floor(sliderCount.current / slideItems)
-              ? setSlideIndex(0)
-              : setSlideIndex(slideIndex + 1)
-          }
+          className='w-[1.5rem] md:w-[2rem] xl:w-[2.5rem] 2xl:w-[3rem] z-10 ml-1 bg-transparent group-hover:bg-white/40 transition-all duration-500 ease-in-out cursor-pointer rounded-l-2xl'
+          onClick={nextSliderPage}
         >
-          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
             &#8250;
           </div>
         </div>
       </div>
-    </>
+      <div className='h-screen'></div>
+    </div>
   );
 }
