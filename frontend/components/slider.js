@@ -48,8 +48,9 @@ export default function Slider() {
         <div
           className='w-[1.5rem] md:w-[2rem] xl:w-[2.5rem] 2xl:w-[3rem] z-10 mr-1 bg-transparent group-hover:bg-white/40 transition-all duration-500 ease-in-out cursor-pointer rounded-r-2xl'
           onClick={prevSliderPage}
+          onTouchEnd={prevSliderPage}
         >
-          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
             &#8249;
           </div>
         </div>
@@ -186,8 +187,9 @@ export default function Slider() {
         <div
           className='w-[1.5rem] md:w-[2rem] xl:w-[2.5rem] 2xl:w-[3rem] z-10 ml-1 bg-transparent group-hover:bg-white/40 transition-all duration-500 ease-in-out cursor-pointer rounded-l-2xl'
           onClick={nextSliderPage}
+          onTouchEnd={nextSliderPage}
         >
-          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl hover:scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
             &#8250;
           </div>
         </div>
