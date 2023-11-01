@@ -22,14 +22,19 @@ export default function Slider() {
     <>
       <div className='group flex w-full justify-center overflow-hidden pt-2'>
         <div
-          className='w-[3rem] z-10 my-3 mr-2 bg-white/30 group-hover:bg-white/50 transition-all duration-500 ease-in-out cursor-pointer rounded-r-2xl'
+          className='w-[1.5rem] md:w-[2rem] xl:w-[2.5rem] 2xl:w-[3rem] z-10 my-3 mr-1 bg-white/30 group-hover:bg-white/50 transition-all duration-500 ease-in-out cursor-pointer rounded-r-2xl'
+          onTouchEnd={() =>
+            slideIndex == 0
+              ? setSlideIndex(Math.floor(sliderCount.current / slideItems))
+              : setSlideIndex(slideIndex - 1)
+          }
           onClick={() =>
             slideIndex == 0
               ? setSlideIndex(Math.floor(sliderCount.current / slideItems))
               : setSlideIndex(slideIndex - 1)
           }
         >
-          <div className='h-full w-full flex justify-center items-center leading-none text-7xl group-hover:scale-125 transition-all duration-500 ease-in-out'>
+          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
             &#8249;
           </div>
         </div>
@@ -38,7 +43,7 @@ export default function Slider() {
         >
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide1.jpg'
               fill
               alt='Demon Slayer'
@@ -46,7 +51,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide2.jpg'
               fill
               alt='Jujutsu Kaisen'
@@ -54,7 +59,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide3.jpg'
               fill
               alt='Attack on Titan'
@@ -62,7 +67,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide4.jpg'
               fill
               alt='Naruto Shippuden'
@@ -70,7 +75,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide5.jpg'
               fill
               alt='My Hero Academia'
@@ -78,7 +83,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide6.jpg'
               fill
               alt='Black Clover'
@@ -86,7 +91,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide7.jpg'
               fill
               alt='Monster'
@@ -94,7 +99,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide8.jpg'
               fill
               alt='Death Note'
@@ -102,7 +107,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide9.jpg'
               fill
               alt='Spy x Family'
@@ -110,7 +115,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide10.jpg'
               fill
               alt='Hunter x Hunter'
@@ -118,7 +123,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide11.jpg'
               fill
               alt='My Dress-Up Darling'
@@ -126,7 +131,7 @@ export default function Slider() {
           </div>
           <div className={`w-1/${slideItems} shrink-0 relative aspect-video`}>
             <Image
-              className='object-cover px-2 py-3 rounded-2xl'
+              className='object-cover px-1 py-3 rounded-2xl'
               src='/images/slider-anime/slide12.jpg'
               fill
               alt='Tokyo Ghoul'
@@ -134,14 +139,19 @@ export default function Slider() {
           </div>
         </div>
         <div
-          className='w-[3rem] z-10 my-3 ml-2 bg-white/30 group-hover:bg-white/50 transition-all duration-500 ease-in-out cursor-pointer rounded-l-2xl'
+          className='w-[1.5rem] md:w-[2rem] xl:w-[2.5rem] 2xl:w-[3rem] z-10 my-3 ml-1 bg-white/30 group-hover:bg-white/50 transition-all duration-500 ease-in-out cursor-pointer rounded-l-2xl'
+          onTouchEnd={() =>
+            slideIndex == Math.floor(sliderCount.current / slideItems)
+              ? setSlideIndex(0)
+              : setSlideIndex(slideIndex + 1)
+          }
           onClick={() =>
             slideIndex == Math.floor(sliderCount.current / slideItems)
               ? setSlideIndex(0)
               : setSlideIndex(slideIndex + 1)
           }
         >
-          <div className='h-full w-full flex justify-center items-center leading-none text-7xl group-hover:scale-125 transition-all duration-500 ease-in-out'>
+          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
             &#8250;
           </div>
         </div>
