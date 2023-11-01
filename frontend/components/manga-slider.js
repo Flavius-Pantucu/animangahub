@@ -56,7 +56,7 @@ export default function MangaSlider() {
       sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
         ? setSliderIndex(0)
         : setSliderIndex(sliderIndex + 1);
-    }, 5000);
+    }, 8000);
 
     return () => {
       clearTimeout(intervalID);
@@ -81,7 +81,7 @@ export default function MangaSlider() {
         <div className='w-full overflow-hidden'>
           <div
             className={
-              `flex flex-grow transition-transform ease-in-out duration-1000 -translate-x-[` +
+              `flex flex-grow transition-transform ease-in-out duration-[1500ms] -translate-x-[` +
               100 * sliderIndex +
               `%]`
             }
@@ -90,7 +90,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide1.jpg'
                 fill
                 alt='Demon Slayer'
@@ -100,7 +100,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide2.jpg'
                 fill
                 alt='Jujutsu Kaisen'
@@ -110,7 +110,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide3.jpg'
                 fill
                 alt='Attack on Titan'
@@ -120,7 +120,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide4.jpg'
                 fill
                 alt='Naruto Shippuden'
@@ -130,7 +130,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide5.jpg'
                 fill
                 alt='My Hero Academia'
@@ -140,7 +140,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide6.jpg'
                 fill
                 alt='Black Clover'
@@ -150,7 +150,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide7.jpg'
                 fill
                 alt='Monster'
@@ -160,7 +160,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide8.jpg'
                 fill
                 alt='Death Note'
@@ -170,7 +170,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide9.jpg'
                 fill
                 alt='Spy x Family'
@@ -180,7 +180,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide10.jpg'
                 fill
                 alt='Hunter x Hunter'
@@ -190,7 +190,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide11.jpg'
                 fill
                 alt='My Dress-Up Darling'
@@ -200,7 +200,7 @@ export default function MangaSlider() {
               className={`w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative`}
             >
               <Image
-                className='object-cover px-2 rounded-2xl'
+                className='object-cover px-2 cursor-pointer rounded-2xl'
                 src='/images/slider-manga/slide12.jpg'
                 fill
                 alt='Tokyo Ghoul'
