@@ -86,7 +86,7 @@ export default function WatchingSlider() {
               `%]`
             }
           >
-            <div className='flex flex-col w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
+            <div className='flex flex-col shrink-0 w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
               <div className='relative aspect-video z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
@@ -113,7 +113,7 @@ export default function WatchingSlider() {
                 <div className='w-[80%] h-1.5 mt-1.5 bg-gradient-to-r from-red-700 from-75% to-80% to-gray-300 rounded-full'></div>
               </div>
             </div>
-            <div className='flex flex-col w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
+            <div className='flex flex-col shrink-0 w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
               <div className='relative aspect-video z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
@@ -140,7 +140,7 @@ export default function WatchingSlider() {
                 <div className='w-[80%] h-1.5 mt-1.5 bg-gradient-to-r from-red-700 from-35% to-40% to-gray-300 rounded-full'></div>
               </div>
             </div>
-            <div className='flex flex-col w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
+            <div className='flex flex-col shrink-0 w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
               <div className='relative aspect-video z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
@@ -167,7 +167,7 @@ export default function WatchingSlider() {
                 <div className='w-[80%] h-1.5 mt-1.5 bg-gradient-to-r from-red-700 from-90% to-95% to-gray-300 rounded-full'></div>
               </div>
             </div>
-            <div className='flex flex-col w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
+            <div className='flex flex-col shrink-0 w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
               <div className='relative aspect-video z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
@@ -194,7 +194,7 @@ export default function WatchingSlider() {
                 <div className='w-[80%] h-1.5 mt-1.5 bg-gradient-to-r from-red-700 from-50% to-55% to-gray-300 rounded-full'></div>
               </div>
             </div>
-            <div className='flex flex-col w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
+            <div className='flex flex-col shrink-0 w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5'>
               <div className='relative aspect-video z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
