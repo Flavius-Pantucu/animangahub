@@ -21,6 +21,7 @@ export default function AnimeSlider() {
 
   const prevSliderPage = () => {
     if (semaphoreRef.current == true) return;
+    console.log(1234);
     semaphoreRef.current = true;
     sliderIndex == 0
       ? setSliderIndex(Math.ceil(sliderCount / sliderItems) - 1)
@@ -51,17 +52,17 @@ export default function AnimeSlider() {
     window.addEventListener("resize", updateSlider);
   }, []);
 
-  // useEffect(() => {
-  //   intervalID = setInterval(() => {
-  //     sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
-  //       ? setSliderIndex(0)
-  //       : setSliderIndex(sliderIndex + 1);
-  //   }, 6000);
+  useEffect(() => {
+    intervalID = setInterval(() => {
+      sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
+        ? setSliderIndex(0)
+        : setSliderIndex(sliderIndex + 1);
+    }, 6000);
 
-  //   return () => {
-  //     clearTimeout(intervalID);
-  //   };
-  // }, [sliderIndex]);
+    return () => {
+      clearTimeout(intervalID);
+    };
+  }, [sliderIndex]);
 
   return (
     <>
@@ -83,7 +84,7 @@ export default function AnimeSlider() {
             className={
               `flex flex-grow space-x-2 transition-transform ease-in-out duration-[1500ms] -translate-x-[` +
               100 * sliderIndex +
-              `%]`
+              `%] `
             }
           >
             <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>

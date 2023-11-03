@@ -5,7 +5,7 @@ export default function WatchingSlider() {
   var intervalID = null;
   const [sliderIndex, setSliderIndex] = useState(0);
   const [sliderItems, setSliderItems] = useState(0);
-  const sliderCount = 12;
+  const sliderCount = 5;
   const semaphoreRef = useRef(false);
 
   const nextSliderPage = () => {
@@ -51,17 +51,17 @@ export default function WatchingSlider() {
     window.addEventListener("resize", updateSlider);
   }, []);
 
-  // useEffect(() => {
-  //   intervalID = setInterval(() => {
-  //     sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
-  //       ? setSliderIndex(0)
-  //       : setSliderIndex(sliderIndex + 1);
-  //   }, 6000);
+  useEffect(() => {
+    intervalID = setInterval(() => {
+      sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
+        ? setSliderIndex(0)
+        : setSliderIndex(sliderIndex + 1);
+    }, 6000);
 
-  //   return () => {
-  //     clearTimeout(intervalID);
-  //   };
-  // }, [sliderIndex]);
+    return () => {
+      clearTimeout(intervalID);
+    };
+  }, [sliderIndex]);
 
   return (
     <>

@@ -51,17 +51,17 @@ export default function MangaSlider() {
     window.addEventListener("resize", updateSlider);
   }, []);
 
-  // useEffect(() => {
-  //   intervalID = setInterval(() => {
-  //     sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
-  //       ? setSliderIndex(0)
-  //       : setSliderIndex(sliderIndex + 1);
-  //   }, 8000);
+  useEffect(() => {
+    intervalID = setInterval(() => {
+      sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
+        ? setSliderIndex(0)
+        : setSliderIndex(sliderIndex + 1);
+    }, 8000);
 
-  //   return () => {
-  //     clearTimeout(intervalID);
-  //   };
-  // }, [sliderIndex]);
+    return () => {
+      clearTimeout(intervalID);
+    };
+  }, [sliderIndex]);
 
   return (
     <>
