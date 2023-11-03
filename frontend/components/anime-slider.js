@@ -51,21 +51,21 @@ export default function AnimeSlider() {
     window.addEventListener("resize", updateSlider);
   }, []);
 
-  useEffect(() => {
-    intervalID = setInterval(() => {
-      sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
-        ? setSliderIndex(0)
-        : setSliderIndex(sliderIndex + 1);
-    }, 6000);
+  // useEffect(() => {
+  //   intervalID = setInterval(() => {
+  //     sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
+  //       ? setSliderIndex(0)
+  //       : setSliderIndex(sliderIndex + 1);
+  //   }, 6000);
 
-    return () => {
-      clearTimeout(intervalID);
-    };
-  }, [sliderIndex]);
+  //   return () => {
+  //     clearTimeout(intervalID);
+  //   };
+  // }, [sliderIndex]);
 
   return (
     <>
-      <div className='pl-[1.75rem] md:pl-[2.25rem] xl:pl-[2.75rem] 2xl:pl-[3.25rem] text-sm md:text-lg xl:text-xl pb-2 pt-4 font-sans'>
+      <div className='pl-[2rem] md:pl-[2.5rem] xl:pl-[3rem] 2xl:pl-[3.5rem] text-sm md:text-lg xl:text-xl pb-2 pt-4 font-sans'>
         Popular Anime
       </div>
       <div className='group flex w-full justify-center'>
@@ -78,129 +78,273 @@ export default function AnimeSlider() {
             &#8249;
           </div>
         </div>
-        <div className='w-full overflow-hidden'>
+        <div className='w-full overflow-hidden px-2'>
           <div
             className={
-              `flex flex-grow transition-transform ease-in-out duration-[1500ms] -translate-x-[` +
+              `flex flex-grow space-x-2 transition-transform ease-in-out duration-[1500ms] -translate-x-[` +
               100 * sliderIndex +
               `%]`
             }
           >
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide1.jpg'
                 fill
                 alt='Demon Slayer'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide2.jpg'
                 fill
                 alt='Jujutsu Kaisen'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide3.jpg'
                 fill
                 alt='Attack on Titan'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide4.jpg'
                 fill
                 alt='Naruto Shippuden'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide5.jpg'
                 fill
                 alt='My Hero Academia'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide6.jpg'
                 fill
                 alt='Black Clover'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide7.jpg'
                 fill
                 alt='Monster'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide8.jpg'
                 fill
                 alt='Death Note'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide9.jpg'
                 fill
                 alt='Spy x Family'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide10.jpg'
                 fill
                 alt='Hunter x Hunter'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide11.jpg'
                 fill
                 alt='My Dress-Up Darling'
               ></Image>
             </div>
-            <div
-              className={`w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video`}
-            >
+            <div className='w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 shrink-0 relative aspect-video cursor-pointer'>
+              <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  fill='currentColor'
+                  className='w-16 h-16'
+                >
+                  <path
+                    fillRule='evenodd'
+                    d='M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z'
+                    clipRule='evenodd'
+                  />
+                </svg>
+              </div>
               <Image
-                className='object-cover px-2 cursor-pointer rounded-2xl'
+                className='object-cover cursor-pointer rounded-2xl'
                 src='/images/slider-anime/slide12.jpg'
                 fill
                 alt='Tokyo Ghoul'
