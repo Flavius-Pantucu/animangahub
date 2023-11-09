@@ -11,9 +11,22 @@ export default function MangaSlider() {
   const nextSliderPage = () => {
     if (semaphoreRef.current == true) return;
     semaphoreRef.current = true;
-    sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
-      ? setSliderIndex(0)
-      : setSliderIndex(sliderIndex + 1);
+    const prevTranslate = 100 * sliderIndex;
+    var nextTranslate;
+    if (sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)) {
+      nextTranslate = 0;
+      setSliderIndex(0);
+    } else {
+      nextTranslate = 100 * (sliderIndex + 1);
+      setSliderIndex(sliderIndex + 1);
+    }
+    document
+      .getElementById("mangaContainer")
+      .classList.remove("-translate-x-[" + prevTranslate + "%]");
+
+    document
+      .getElementById("mangaContainer")
+      .classList.add("-translate-x-[" + nextTranslate + "%]");
     setTimeout(() => {
       semaphoreRef.current = false;
     }, 1000);
@@ -22,9 +35,22 @@ export default function MangaSlider() {
   const prevSliderPage = () => {
     if (semaphoreRef.current == true) return;
     semaphoreRef.current = true;
-    sliderIndex == 0
-      ? setSliderIndex(Math.ceil(sliderCount / sliderItems) - 1)
-      : setSliderIndex(sliderIndex - 1);
+    const prevTranslate = 100 * sliderIndex;
+    var nextTranslate;
+    if (sliderIndex + 1 == 0) {
+      nextTranslate = Math.ceil(sliderCount / sliderItems) - 1;
+      setSliderIndex(Math.ceil(sliderCount / sliderItems) - 1);
+    } else {
+      nextTranslate = 100 * (sliderIndex - 1);
+      setSliderIndex(sliderIndex - 1);
+    }
+    document
+      .getElementById("mangaContainer")
+      .classList.remove("-translate-x-[" + prevTranslate + "%]");
+
+    document
+      .getElementById("mangaContainer")
+      .classList.add("-translate-x-[" + nextTranslate + "%]");
     setTimeout(() => {
       semaphoreRef.current = false;
     }, 1000);
@@ -53,9 +79,7 @@ export default function MangaSlider() {
 
   useEffect(() => {
     intervalID = setInterval(() => {
-      sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
-        ? setSliderIndex(0)
-        : setSliderIndex(sliderIndex + 1);
+      nextSliderPage();
     }, 8000);
 
     return () => {
@@ -74,17 +98,14 @@ export default function MangaSlider() {
           onClick={prevSliderPage}
           onTouchEnd={prevSliderPage}
         >
-          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out select-none'>
             &#8249;
           </div>
         </div>
         <div className='w-full overflow-hidden px-2'>
           <div
-            className={
-              `flex flex-grow space-x-2 transition-transform ease-in-out duration-[1500ms] -translate-x-[` +
-              100 * sliderIndex +
-              `%]`
-            }
+            id='mangaContainer'
+            className='flex flex-grow space-x-2 transition-transform ease-in-out duration-[1500ms] -translate-x-[0%]'
           >
             <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative'>
               <div className='relative aspect-[1/1.5] z-10 cursor-pointer'>
@@ -333,7 +354,7 @@ export default function MangaSlider() {
           onClick={nextSliderPage}
           onTouchEnd={nextSliderPage}
         >
-          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out'>
+          <div className='h-full w-full flex justify-center items-center leading-none text-4xl md:text-5xl xl:text-7xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out select-none'>
             &#8250;
           </div>
         </div>
