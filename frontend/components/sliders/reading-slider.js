@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
 export default function ReadingSlider() {
-  var intervalID = null;
   const [sliderIndex, setSliderIndex] = useState(0);
   const [sliderItems, setSliderItems] = useState(0);
   const sliderCount = 12;
@@ -11,9 +10,22 @@ export default function ReadingSlider() {
   const nextSliderPage = () => {
     if (semaphoreRef.current == true) return;
     semaphoreRef.current = true;
-    sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
-      ? setSliderIndex(0)
-      : setSliderIndex(sliderIndex + 1);
+    const prevTranslate = 100 * sliderIndex;
+    var nextTranslate;
+    if (sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)) {
+      nextTranslate = 0;
+      setSliderIndex(0);
+    } else {
+      nextTranslate = 100 * (sliderIndex + 1);
+      setSliderIndex(sliderIndex + 1);
+    }
+    document
+      .getElementById("readingSlider")
+      .classList.remove("-translate-x-[" + prevTranslate + "%]");
+
+    document
+      .getElementById("readingSlider")
+      .classList.add("-translate-x-[" + nextTranslate + "%]");
     setTimeout(() => {
       semaphoreRef.current = false;
     }, 1000);
@@ -22,14 +34,26 @@ export default function ReadingSlider() {
   const prevSliderPage = () => {
     if (semaphoreRef.current == true) return;
     semaphoreRef.current = true;
-    sliderIndex == 0
-      ? setSliderIndex(Math.ceil(sliderCount / sliderItems) - 1)
-      : setSliderIndex(sliderIndex - 1);
+    const prevTranslate = 100 * sliderIndex;
+    var nextTranslate;
+    if (sliderIndex + 1 == 0) {
+      nextTranslate = Math.ceil(sliderCount / sliderItems) - 1;
+      setSliderIndex(Math.ceil(sliderCount / sliderItems) - 1);
+    } else {
+      nextTranslate = 100 * (sliderIndex - 1);
+      setSliderIndex(sliderIndex - 1);
+    }
+    document
+      .getElementById("readingSlider")
+      .classList.remove("-translate-x-[" + prevTranslate + "%]");
+
+    document
+      .getElementById("readingSlider")
+      .classList.add("-translate-x-[" + nextTranslate + "%]");
     setTimeout(() => {
       semaphoreRef.current = false;
     }, 1000);
   };
-
   useEffect(() => {
     const updateSlider = () => {
       const width = window.innerWidth;
@@ -51,18 +75,6 @@ export default function ReadingSlider() {
     window.addEventListener("resize", updateSlider);
   }, []);
 
-  useEffect(() => {
-    intervalID = setInterval(() => {
-      sliderIndex + 1 == Math.ceil(sliderCount / sliderItems)
-        ? setSliderIndex(0)
-        : setSliderIndex(sliderIndex + 1);
-    }, 8000);
-
-    return () => {
-      clearTimeout(intervalID);
-    };
-  }, [sliderIndex]);
-
   return (
     <>
       <div className='pl-[2rem] md:pl-[2.5rem] xl:pl-[3rem] 2xl:pl-[3.5rem] text-sm md:text-lg xl:text-xl pb-2 pt-4 font-sans'>
@@ -78,15 +90,12 @@ export default function ReadingSlider() {
             &#8249;
           </div>
         </div>
-        <div className='w-full overflow-hidden px-2'>
+        <div className='w-full overflow-hidden mx-2'>
           <div
-            className={
-              `flex flex-grow space-x-2 transition-transform ease-in-out duration-[1500ms] -translate-x-[` +
-              100 * sliderIndex +
-              `%]`
-            }
+            id='readingSlider'
+            className='flex flex-grow transition-transform ease-in-out duration-[1500ms] -translate-x-[0%]'
           >
-            <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative'>
+            <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative px-1'>
               <div className='relative aspect-[1/1.5] z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
@@ -109,7 +118,7 @@ export default function ReadingSlider() {
                 <div className='w-[80%] h-1.5 mt-1.5 bg-gradient-to-r from-red-700 from-10% to-15% to-gray-300 rounded-full'></div>
               </div>
             </div>
-            <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative'>
+            <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative px-1'>
               <div className='relative aspect-[1/1.5] z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
@@ -132,7 +141,7 @@ export default function ReadingSlider() {
                 <div className='w-[80%] h-1.5 mt-1.5 bg-gradient-to-r from-red-700 from-40% to-45% to-gray-300 rounded-full'></div>
               </div>
             </div>
-            <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative'>
+            <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative px-1'>
               <div className='relative aspect-[1/1.5] z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
@@ -155,7 +164,7 @@ export default function ReadingSlider() {
                 <div className='w-[80%] h-1.5 mt-1.5 bg-gradient-to-r from-red-700 from-90% to-95% to-gray-300 rounded-full'></div>
               </div>
             </div>
-            <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative'>
+            <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative px-1'>
               <div className='relative aspect-[1/1.5] z-10 cursor-pointer'>
                 <div className='flex justify-center items-center absolute top-0 left-0 h-full w-full bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out z-20 rounded-2xl'>
                   <svg
