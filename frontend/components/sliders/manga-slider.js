@@ -102,7 +102,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide1.jpg'
                   fill
-                  alt='Demon Slayer'
+                  alt='Chainsaw Man'
                 ></Image>
               </div>
             </div>
@@ -142,7 +142,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide3.jpg'
                   fill
-                  alt='Attack on Titan'
+                  alt='Kagurabachi'
                 ></Image>
               </div>
             </div>
@@ -162,7 +162,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide4.jpg'
                   fill
-                  alt='Naruto Shippuden'
+                  alt='Spy x Family'
                 ></Image>
               </div>
             </div>
@@ -182,7 +182,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide5.jpg'
                   fill
-                  alt='My Hero Academia'
+                  alt='One Piece'
                 ></Image>
               </div>
             </div>
@@ -202,7 +202,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide6.jpg'
                   fill
-                  alt='Black Clover'
+                  alt='Boruto'
                 ></Image>
               </div>
             </div>
@@ -222,7 +222,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide7.jpg'
                   fill
-                  alt='Monster'
+                  alt='Demon Slayer'
                 ></Image>
               </div>
             </div>
@@ -262,7 +262,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide9.jpg'
                   fill
-                  alt='Spy x Family'
+                  alt='Oshi No Ko'
                 ></Image>
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide10.jpg'
                   fill
-                  alt='Hunter x Hunter'
+                  alt='Black Clover'
                 ></Image>
               </div>
             </div>
@@ -302,7 +302,7 @@ export default function MangaSlider() {
                   className='object-cover cursor-pointer rounded-2xl'
                   src='/images/slider-manga/slide11.jpg'
                   fill
-                  alt='My Dress-Up Darling'
+                  alt='Hunter x Hunter'
                 ></Image>
               </div>
             </div>

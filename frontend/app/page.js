@@ -2,7 +2,7 @@
 
 import NavBar from "../components/navbar";
 import Carousel from "../components/carousel";
-import Sliders from "../components/sliders";
+import Sliders from "../components/sliders/sliders";
 
 export default function Home() {
   return (
