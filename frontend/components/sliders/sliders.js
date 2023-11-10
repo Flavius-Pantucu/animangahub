@@ -1,3 +1,5 @@
+"use client";
+
 import AnimeSlider from "./anime-slider";
 import MangaSlider from "./manga-slider";
 import WatchingSlider from "./watching-slider";

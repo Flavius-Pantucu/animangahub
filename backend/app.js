@@ -36,6 +36,27 @@ app.get("/", function (req, res) {
   res.send("Welocme to AniMangaHub!");
 });
 
+app.get("/get-carousel-items", async (req, res) => {
+  const dbName =
+    NODE_ENV == "PROD"
+      ? process.env.PROD_MONGO_DATABASE
+      : process.env.DEV_MONGO_DATABASE;
+
+  const collectionName = "carousel_items";
+
+  const database = client.db(dbName);
+  const collection = database.collection(collectionName);
+
+  try {
+    const cursor = await collection.find().toArray();
+
+    res.send(cursor);
+  } catch (err) {
+    res.send(`Something went wrong trying to find the documents: ${err}\n`);
+  }
+});
+
+//Examples
 app.get("/get-recipes", async (req, res, next) => {
   const dbName =
     NODE_ENV == "PROD"

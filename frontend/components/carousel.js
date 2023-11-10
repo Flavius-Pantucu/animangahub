@@ -1,51 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
-export default function Carousel() {
+export default function Carousel(props) {
   var intervalID = null;
-  const animeDescription = [
-    {
-      name: "Demon Slayer",
-      genre: "Action, Adventure",
-      rating: 5,
-      release: 2019,
-      type: "series",
-      duration: "23m",
-    },
-    {
-      name: "Violet Evergarden",
-      genre: "Drama, Fantasy",
-      rating: 4,
-      release: 2018,
-      type: "mini series",
-      duration: "23m",
-    },
-    {
-      name: "Spy x Family",
-      genre: "Action, Comedy",
-      rating: 4,
-      release: 2022,
-      type: "series",
-      duration: "24m",
-    },
-    {
-      name: "Attack on Titan",
-      genre: "Action, Adventure",
-      rating: 5,
-      release: 2013,
-      type: "series",
-      duration: "23m",
-    },
-    {
-      name: "Your Name",
-      genre: "Drama, Fantasy",
-      rating: 5,
-      release: 2016,
-      type: "movie",
-      duration: "1h 46m",
-    },
-  ];
-  const itemsNo = 5;
+  const items = props.items;
+  const itemsNo = items.length;
+
   const [currentItem, setCurrentItem] = useState(1);
   const semaphoreRef = useRef(false);
 
@@ -102,40 +64,38 @@ export default function Carousel() {
       <div className='w-full h-full'>
         <div className='absolute flex flex-col font-sans bottom-[10%] left-[5%] lg:left-[10%] z-30'>
           <span className='2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-xl font-extrabold 2xl:pb-4 md:pb-2 pb-0 transition-all ease-in-out duration-500'>
-            {animeDescription[currentItem - 1].name}
+            {items[currentItem - 1].name}
           </span>
           <div className='flex flex-row space-x-3 h-8 items-center'>
             <div className='lg:text-sm text-xs transition-all ease-in-out duration-500'>
-              {animeDescription[currentItem - 1].genre}
+              {items[currentItem - 1].genre}
             </div>
             <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500'></div>
             <div className='hidden md:flex flex-row space-x-1'>
-              {[...Array(animeDescription[currentItem - 1].rating)].map(
-                (e, i) => (
-                  <span key={i}>
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      viewBox='0 0 24 24'
-                      fill='currentColor'
-                      className='w-4 h-4 lg:w-5 lg:h-5 text-yellow-300 transition-all ease-in-out duration-500'
-                    >
-                      <path
-                        fillRule='evenodd'
-                        d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z'
-                        clipRule='evenodd'
-                      />
-                    </svg>
-                  </span>
-                )
-              )}
+              {[...Array(items[currentItem - 1].rating)].map((e, i) => (
+                <span key={i}>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 24 24'
+                    fill='currentColor'
+                    className='w-4 h-4 lg:w-5 lg:h-5 text-yellow-300 transition-all ease-in-out duration-500'
+                  >
+                    <path
+                      fillRule='evenodd'
+                      d='M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                </span>
+              ))}
             </div>
             <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500 hidden md:block'></div>
             <div className='lg:text-sm text-xs transition-all ease-in-out duration-500 hidden md:block'>
-              {animeDescription[currentItem - 1].release}
+              {items[currentItem - 1].release}
             </div>
             <div className='self-center opacity-40 lg:w-2 lg:h-2 w-1.5 h-1.5 rounded-full bg-white transition-all ease-in-out duration-500 hidden md:block'></div>
             <div className='border rounded-sm lg:text-sm text-xs px-2 py-1 uppercase transition-all ease-in-out duration-500'>
-              {animeDescription[currentItem - 1].type}
+              {items[currentItem - 1].type}
             </div>
           </div>
           <div className='flex-row space-x-1 lg:space-x-2 h-4 items-center transition-all ease-in-out duration-500 hidden md:flex'>
@@ -149,7 +109,7 @@ export default function Carousel() {
               TV
             </div>
             <div className='text-xs lg:text-sm lg:scale-100 scale-90'>
-              {animeDescription[currentItem - 1].duration}
+              {items[currentItem - 1].duration}
             </div>
           </div>
         </div>
@@ -185,7 +145,8 @@ export default function Carousel() {
               className={` ${
                 currentItem == i + 1 ? "opacity-60" : "opacity-0"
               } transition-all duration-1000 ease-in-out md:block hidden`}
-              src={"/images/carousel-desktop/wallpaper" + (i + 1) + ".jpg"}
+              src={"/images/carousel-desktop/" + items[i].url}
+              sizes=''
               alt='...'
             />
           ))}
@@ -197,7 +158,8 @@ export default function Carousel() {
               className={` ${
                 currentItem == i + 1 ? "opacity-50" : "opacity-0"
               } transition-all duration-1000 ease-in-out md:hidden`}
-              src={"/images/carousel-mobile/wallpaper" + (i + 1) + ".jpg"}
+              src={"/images/carousel-mobile/wallpaper" + items[i].url}
+              sizes=''
               alt='...'
             />
           ))}
