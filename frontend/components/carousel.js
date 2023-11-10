@@ -7,7 +7,7 @@ export default function Carousel(props) {
   var intervalID = null;
   const items = props.items;
   const itemsNo = items.length;
-
+  console.log(props.items);
   const [currentItem, setCurrentItem] = useState(1);
   const semaphoreRef = useRef(false);
 
