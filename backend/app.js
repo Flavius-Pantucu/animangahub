@@ -56,6 +56,37 @@ app.get("/get-carousel-items", async (req, res) => {
   }
 });
 
+app.post("/add-carousel-item", async (req, res) => {
+  const dbName =
+    NODE_ENV == "PROD"
+      ? process.env.PROD_MONGO_DATABASE
+      : process.env.DEV_MONGO_DATABASE;
+
+  const collectionName = "carousel_items";
+
+  const database = client.db(dbName);
+  const collection = database.collection(collectionName);
+
+  const item = {
+    name: "Rent a Girlfriend",
+    genre: "Romance, Comedy",
+    rating: 3,
+    release: 2017,
+    type: "series",
+    duration: "23m",
+    url: "rentagirlfriend.jpg",
+  };
+
+  try {
+    const insertOne = await collection.insertOne(item);
+    res.send(`${insertOne.insertedCount} documents successfully inserted.\n`);
+  } catch (err) {
+    res.send(
+      `Something went wrong trying to insert the new documents: ${err}\n`
+    );
+  }
+});
+
 //Examples
 app.get("/get-recipes", async (req, res, next) => {
   const dbName =
