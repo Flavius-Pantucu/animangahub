@@ -157,7 +157,7 @@ export default function Carousel(props) {
               className={` ${
                 currentItem == i + 1 ? "opacity-50" : "opacity-0"
               } transition-all duration-1000 ease-in-out md:hidden`}
-              src={"/images/carousel-mobile/wallpaper" + items[i].url}
+              src={"/images/carousel-mobile/" + items[i].url}
               sizes=''
               alt='...'
             />
