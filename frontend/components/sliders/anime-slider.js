@@ -78,6 +78,16 @@ export default function AnimeSlider() {
   }, []);
 
   useEffect(() => {
+    document
+      .getElementById("animeContainer")
+      .classList.remove("translate-x-[100%]");
+
+    document
+      .getElementById("animeContainer")
+      .classList.add("-translate-x-[0%]");
+  }, []);
+
+  useEffect(() => {
     intervalID = setInterval(() => {
       nextSliderPage();
     }, 6000);
@@ -105,7 +115,7 @@ export default function AnimeSlider() {
         <div className='w-full overflow-hidden mx-2'>
           <div
             id='animeContainer'
-            className='flex flex-grow transition-all ease-in-out duration-[1500ms] -translate-x-[0%]'
+            className='flex flex-grow transition-all ease-in-out duration-[1500ms] translate-x-[100%]'
           >
             {[...Array(sliderCount)].map((e, i) => (
               <div

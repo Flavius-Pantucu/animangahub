@@ -78,6 +78,16 @@ export default function MangaSlider() {
   }, []);
 
   useEffect(() => {
+    document
+      .getElementById("mangaContainer")
+      .classList.remove("translate-x-[100%]");
+
+    document
+      .getElementById("mangaContainer")
+      .classList.add("-translate-x-[0%]");
+  }, []);
+
+  useEffect(() => {
     intervalID = setInterval(() => {
       nextSliderPage();
     }, 8000);
@@ -105,7 +115,7 @@ export default function MangaSlider() {
         <div className='w-full overflow-hidden mx-2'>
           <div
             id='mangaContainer'
-            className='flex flex-grow transition-transform ease-in-out duration-[1500ms] -translate-x-[0%]'
+            className='flex flex-grow transition-transform ease-in-out duration-[1500ms] translate-x-[100%]'
           >
             {[...Array(sliderCount)].map((e, i) => (
               <div

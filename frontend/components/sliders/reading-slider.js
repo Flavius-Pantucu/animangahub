@@ -54,6 +54,7 @@ export default function ReadingSlider() {
       semaphoreRef.current = false;
     }, 1000);
   };
+
   useEffect(() => {
     const updateSlider = () => {
       const width = window.innerWidth;
@@ -75,6 +76,14 @@ export default function ReadingSlider() {
     window.addEventListener("resize", updateSlider);
   }, []);
 
+  useEffect(() => {
+    document
+      .getElementById("readingSlider")
+      .classList.remove("translate-x-[100%]");
+
+    document.getElementById("readingSlider").classList.add("-translate-x-[0%]");
+  }, []);
+
   return (
     <>
       <div className='pl-[2rem] md:pl-[2.5rem] xl:pl-[3rem] 2xl:pl-[3.5rem] text-sm md:text-lg xl:text-xl pb-2 pt-4 font-sans'>
@@ -93,7 +102,7 @@ export default function ReadingSlider() {
         <div className='w-full overflow-hidden mx-2'>
           <div
             id='readingSlider'
-            className='flex flex-grow transition-transform ease-in-out duration-[1500ms] -translate-x-[0%]'
+            className='flex flex-grow transition-transform ease-in-out duration-[1500ms] translate-x-[100%]'
           >
             <div className='w-1/3 md:w-1/4 xl:w-1/6 2xl:w-[12.5%] shrink-0 aspect-[1/1.5] relative px-1'>
               <div className='relative aspect-[1/1.5] z-10 cursor-pointer'>

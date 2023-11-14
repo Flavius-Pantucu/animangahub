@@ -76,6 +76,16 @@ export default function WatchingSlider() {
     window.addEventListener("resize", updateSlider);
   }, []);
 
+  useEffect(() => {
+    document
+      .getElementById("watchingSlider")
+      .classList.remove("translate-x-[100%]");
+
+    document
+      .getElementById("watchingSlider")
+      .classList.add("-translate-x-[0%]");
+  }, []);
+
   return (
     <>
       <div className='pl-[2rem] md:pl-[2.5rem] xl:pl-[3rem] 2xl:pl-[3.5rem] text-sm md:text-lg xl:text-xl pb-2 pt-4 font-sans'>
@@ -94,7 +104,7 @@ export default function WatchingSlider() {
         <div className='w-full overflow-hidden mx-2'>
           <div
             id='watchingSlider'
-            className='flex flex-grow transition-transform ease-in-out duration-[1500ms] -translate-x-[0%]'
+            className='flex flex-grow transition-transform ease-in-out duration-[1500ms] translate-x-[100%]'
           >
             <div className='flex flex-col shrink-0 w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 px-1'>
               <div className='relative aspect-video z-10 cursor-pointer'>
